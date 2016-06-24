@@ -19,16 +19,16 @@ defmodule Countdown.ArenaChannelTest do
   test "should reply counter, 0 the first time, when joining", %{join_reply: reply} do
     assert %{counter: 0} = reply
   end
-  #
-  # test "should reply updated counter when joining" do
-  #   # Increment counter
-  #   Counter.count
-  #   # Create new socket and join to the channel
-  #   {:ok, socket} = connect(UserSocket, %{})
-  #   {:ok, reply, _socket} = subscribe_and_join(socket, "arenas:lobby")
-  #   # So it should reply updated counter
-  #   assert %{counter: 1} = reply
-  # end
+
+  test "should reply updated counter when joining" do
+    # Increment counter
+    Counter.count
+    # Create new socket and join to the channel
+    {:ok, socket} = connect(UserSocket, %{})
+    {:ok, reply, _socket} = subscribe_and_join(socket, "arenas:lobby")
+    # So it should reply updated counter
+    assert %{counter: 1} = reply
+  end
   #
   # test "count broadcasts updated counter to arenas:lobby", %{socket: socket} do
   #   # At this moment counter value should be 0
