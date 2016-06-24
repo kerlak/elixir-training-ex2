@@ -27,11 +27,11 @@ defmodule Countdown.CounterTest do
     assert {:ok, 2} = Counter.count
     assert {:ok, 3} = Counter.count
   end
-  #
-  # test "incrementing counter, when in limit, returns overflow and 0 as count" do
-  #   Counter.set(Counter.limit - 1)
-  #   assert {:overflow, 0} = Counter.count
-  # end
+
+  test "incrementing counter, when in limit, returns overflow and 0 as count" do
+    Counter.set(Counter.limit - 1)
+    assert {:overflow, 0} = Counter.count
+  end
   #
   # test "resets count" do
   #   Counter.count

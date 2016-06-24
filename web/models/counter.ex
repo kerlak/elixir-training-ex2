@@ -16,6 +16,16 @@ defmodule Countdown.Counter do
   end
 
   def count do
-    Agent.get_and_update(__MODULE__, fn(old_value) -> {{:ok, old_value + 1}, old_value + 1} end)
+    Agent.get_and_update(__MODULE__, fn(old_value) ->
+      new_value = old_value + 1
+      case new_value do
+        100 -> {{:overflow, 0}, 0}
+        _ -> {{:ok, new_value}, new_value}
+      end
+    end)
+  end
+
+  def set(new_value) do
+    Agent.update(__MODULE__, fn(_) -> new_value end)
   end
 end
