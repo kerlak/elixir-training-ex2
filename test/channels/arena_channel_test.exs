@@ -29,21 +29,21 @@ defmodule Countdown.ArenaChannelTest do
     # So it should reply updated counter
     assert %{counter: 1} = reply
   end
-  #
-  # test "count broadcasts updated counter to arenas:lobby", %{socket: socket} do
-  #   # At this moment counter value should be 0
-  #   assert 0 = Counter.value
-  #   # Then, when sending "count" event to channel it should update counter (to 1)
-  #   ref = push socket, "count", %{}
-  #   # And should broadcast updated counter to all channel members
-  #   assert_broadcast "update", %{counter: 1}
-  #   # Replying the counter
-  #   assert_reply ref, :ok, %{won: false, counter: 1}
-  #   # Let's ensure counter has been updated here
-  #   assert 1 = Counter.value
-  #   # NOTE: this last assertion could fail if called just after "push" call.
-  #   # That's because "push" method only sends the "count" message to the
-  #   # channel, and the channel (that runs in *another process*) will dispatch it
-  #   # when it can do it. Sooner than later, but doen's have to be immediately.
-  # end
+
+  test "count broadcasts updated counter to arenas:lobby", %{socket: socket} do
+    # At this moment counter value should be 0
+    assert 0 = Counter.value
+    # Then, when sending "count" event to channel it should update counter (to 1)
+    ref = push socket, "count", %{}
+    # And should broadcast updated counter to all channel members
+    assert_broadcast "update", %{counter: 1}
+    # Replying the counter
+    assert_reply ref, :ok, %{won: false, counter: 1}
+    # Let's ensure counter has been updated here
+    assert 1 = Counter.value
+    # NOTE: this last assertion could fail if called just after "push" call.
+    # That's because "push" method only sends the "count" message to the
+    # channel, and the channel (that runs in *another process*) will dispatch it
+    # when it can do it. Sooner than later, but doen's have to be immediately.
+  end
 end
