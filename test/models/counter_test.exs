@@ -1,18 +1,18 @@
 defmodule Countdown.CounterTest do
   use ExUnit.Case, async: true
 
-  # alias Countdown.Counter
-  #
-  # setup do
-  #   Counter.reset # This method should set the count to 0. Otherwise no test will work.
-  #   # NOTE: To make tests working you need to uncomment lib/countdown.ex:13
-  #   # line when creating Countdown.Counter module to make process available
-  #   # globaly.
-  #
-  #   on_exit fn -> Counter.reset end
-  #
-  #   :ok
-  # end
+  alias Countdown.Counter
+
+  setup do
+    Counter.reset # This method should set the count to 0. Otherwise no test will work.
+    # NOTE: To make tests working you need to uncomment lib/countdown.ex:13
+    # line when creating Countdown.Counter module to make process available
+    # globaly.
+
+    on_exit fn -> Counter.reset end
+
+     :ok
+  end
   #
   # test "starts with 0 as value" do
   #   assert 0 = Counter.value
