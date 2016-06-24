@@ -10,4 +10,8 @@ defmodule Countdown.Counter do
   def value do
     Agent.get(__MODULE__, fn(v) -> v end)
   end
+  
+  def limit do
+    100
+  end
 end

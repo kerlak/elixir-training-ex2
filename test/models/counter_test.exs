@@ -17,10 +17,10 @@ defmodule Countdown.CounterTest do
   test "starts with 0 as value" do
     assert 0 = Counter.value
   end
-  #
-  # test "has a limit of 100" do
-  #   assert 100 = Counter.limit
-  # end
+
+  test "has a limit of 100" do
+    assert 100 = Counter.limit
+  end
   #
   # test "incrementing counter, being under limit, returns its value" do
   #   assert {:ok, 1} = Counter.count
