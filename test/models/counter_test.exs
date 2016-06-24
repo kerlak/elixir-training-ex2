@@ -32,13 +32,13 @@ defmodule Countdown.CounterTest do
     Counter.set(Counter.limit - 1)
     assert {:overflow, 0} = Counter.count
   end
-  #
-  # test "resets count" do
-  #   Counter.count
-  #   Counter.count
-  #   Counter.reset
-  #   assert 0 = Counter.value
-  # end
+
+  test "resets count" do
+    Counter.count
+    Counter.count
+    Counter.reset
+    assert 0 = Counter.value
+  end
   #
   # test "sets count to a given value" do
   #   Counter.set(42)
