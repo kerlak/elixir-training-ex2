@@ -13,10 +13,10 @@ defmodule Countdown.CounterTest do
 
      :ok
   end
-  #
-  # test "starts with 0 as value" do
-  #   assert 0 = Counter.value
-  # end
+
+  test "starts with 0 as value" do
+    assert 0 = Counter.value
+  end
   #
   # test "has a limit of 100" do
   #   assert 100 = Counter.limit
