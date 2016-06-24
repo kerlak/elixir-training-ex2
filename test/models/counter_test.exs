@@ -39,9 +39,9 @@ defmodule Countdown.CounterTest do
     Counter.reset
     assert 0 = Counter.value
   end
-  #
-  # test "sets count to a given value" do
-  #   Counter.set(42)
-  #   assert 42 = Counter.value
-  # end
+
+  test "sets count to a given value" do
+    Counter.set(42)
+    assert 42 = Counter.value
+  end
 end
