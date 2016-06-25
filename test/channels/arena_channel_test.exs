@@ -46,4 +46,11 @@ defmodule Countdown.ArenaChannelTest do
     # channel, and the channel (that runs in *another process*) will dispatch it
     # when it can do it. Sooner than later, but doen's have to be immediately.
   end
+
+  test "notify when user won", %{socket: socket} do
+    Counter.set(Counter.limit - 1)
+    ref = push socket, "count", %{}
+    assert_broadcast "update", %{counter: 0}
+    assert_reply ref, :ok, %{won: true, counter: 0}
+  end
 end
